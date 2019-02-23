@@ -28,7 +28,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                     // Thread will sleep for 5 seconds
                     sleep(2*1000);
 
-                    Intent intent = new Intent(SplashScreenActivity.this,MainMenuActivity.class);
+                    Intent intent = new Intent(SplashScreenActivity.this,InvestActivity.class);
                     startActivity(intent);
 
 
