@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetectImageActivity">
+
+    <ImageView
+        android:id="@+id/scannedImageView"
+        android:layout_width="135dp"
+        android:layout_height="173dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        app:srcCompat="?android:attr/actionModePasteDrawable" />
+
+    <Button
+        android:id="@+id/SaveButton"
+        android:layout_width="306dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="Save" />
+
+    <Button
+        android:id="@+id/scanButton"
+        android:layout_width="306dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="196dp"
+        android:text="Scan" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/SaveButton"
+        android:layout_marginBottom="88dp"
+        android:text="Harga" />
+
+    <TextView
+        android:id="@+id/hargaText"
+        android:layout_width="134dp"
+        android:layout_height="35dp"
+        android:layout_alignEnd="@+id/SaveButton"
+        android:layout_alignTop="@+id/textView6"
+        android:layout_marginTop="-16dp"
+        android:text="Harga"
+        android:textAlignment="viewEnd"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/produk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/SaveButton"
+        android:layout_marginBottom="151dp"
+        android:text="Produk" />
+</RelativeLayout>
