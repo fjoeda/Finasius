@@ -40,17 +40,20 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/SaveButton"
         android:layout_marginBottom="88dp"
+        android:textColor="#000000"
         android:text="Harga" />
 
     <TextView
         android:id="@+id/hargaText"
-        android:layout_width="134dp"
-        android:layout_height="35dp"
+        android:layout_width="131dp"
+        android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/SaveButton"
         android:layout_alignTop="@+id/textView6"
-        android:layout_marginTop="-16dp"
-        android:text="Harga"
+        android:layout_marginEnd="3dp"
+        android:layout_marginTop="-13dp"
+        android:text="0"
         android:textAlignment="viewEnd"
+        android:textColor="#000000"
         android:textSize="24sp" />
 
     <TextView
@@ -60,5 +63,26 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/SaveButton"
         android:layout_marginBottom="151dp"
+        android:textColor="#000000"
         android:text="Produk" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/SaveButton"
+        android:layout_marginTop="22dp"
+        android:text="Pengeluaran:"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/pengeluaranText"
+        android:layout_width="131dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/hargaText"
+        android:layout_alignTop="@+id/textView10"
+        android:text="25000"
+        android:textColor="#000000" />
+
 </RelativeLayout>

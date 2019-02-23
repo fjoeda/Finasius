@@ -1,8 +1,14 @@
 package com.nl.manage.finasius;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.nightonke.boommenu.BoomButtons.HamButton;
+import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
+import com.nightonke.boommenu.BoomButtons.SimpleCircleButton;
+import com.nightonke.boommenu.BoomMenuButton;
 
 import java.util.ArrayList;
 
@@ -10,69 +16,62 @@ import devlight.io.library.ntb.NavigationTabBar;
 
 public class MainMenuActivity extends AppCompatActivity {
 
+    int pengeluaran = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main_menu);
-        NavigationTabBar navigationTabBar = (NavigationTabBar)findViewById(R.id.ntb);
+        BoomMenuButton bmb = (BoomMenuButton) findViewById(R.id.bmb);
 
-        ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
-        models.add(
-                new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_launcher_background),
-                        Color.argb(255,12,144,32)
-                ).title("Heart")
-                        .badgeTitle("NTB")
-                        .build()
-        );
-        models.add(
-                new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_launcher_background),
-                        Color.argb(255,12,144,32)
-                ).title("Cup")
-                        .badgeTitle("with")
-                        .build()
-        );
-        models.add(
-                new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_launcher_background),
-                        Color.argb(255,12,44,222)
-                ).title("Diploma")
-                        .badgeTitle("state")
-                        .build()
-        );
-        models.add(
-                new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_launcher_background),
-                        Color.argb(255,12,44,32)
-                ).title("Flag")
-                        .badgeTitle("icon")
-                        .build()
-        );
-        models.add(
-                new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_launcher_background),
-                        Color.argb(255,122,144,32)
-                ).title("Medal")
-                        .badgeTitle("777")
-                        .build()
-        );
-        navigationTabBar.setModels(models);
-        navigationTabBar.setTitleMode(NavigationTabBar.TitleMode.ACTIVE);
-        navigationTabBar.setBadgeGravity(NavigationTabBar.BadgeGravity.BOTTOM);
-        navigationTabBar.setBadgePosition(NavigationTabBar.BadgePosition.CENTER);
-        navigationTabBar.setTypeface("fonts/custom_font.ttf");
-        navigationTabBar.setIsBadged(true);
-        navigationTabBar.setIsTitled(true);
-        navigationTabBar.setIsTinted(true);
-        navigationTabBar.setIsBadgeUseTypeface(true);
-        navigationTabBar.setBadgeBgColor(Color.RED);
-        navigationTabBar.setBadgeTitleColor(Color.WHITE);
-        navigationTabBar.setIsSwiped(true);
-        navigationTabBar.setBgColor(Color.BLACK);
-        navigationTabBar.setBadgeSize(10);
-        navigationTabBar.setTitleSize(10);
-        navigationTabBar.setIconSizeFraction(0.5f);
+        //Building ham button
+        //Scan
+        HamButton.Builder builder = new HamButton.Builder()
+                .normalImageRes(R.drawable.piece)
+                .normalText("Scan Pembelian")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        Intent intent = new Intent(MainMenuActivity.this, DetectImageActivity.class);
+                        intent.putExtra("PENGELUARAN_VALUE", pengeluaran);
+                        startActivity(intent);
+                    }
+                });
+        bmb.addBuilder(builder);
+        //Invest
+        builder = new HamButton.Builder()
+                .normalImageRes(R.drawable.piece)
+                .normalText("Jenius Invest")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        Intent intent = new Intent(MainMenuActivity.this, InvestActivity.class);
+                        startActivity(intent);
+                    }
+                });
+        bmb.addBuilder(builder);
+        //Bill Reminder
+        builder = new HamButton.Builder()
+                .normalImageRes(R.drawable.piece)
+                .normalText("Bill Reminder")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        Intent intent = new Intent(MainMenuActivity.this, BillTracker.class);
+                        startActivity(intent);
+                    }
+                });
+        bmb.addBuilder(builder);
+        //
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent intent = getIntent();
+        if(intent.hasExtra("PENGELUARAN_NEW_VALUE")){
+            pengeluaran += intent.getIntExtra("PENGELUARAN_NEW_VALUE",0);
+        }
     }
 }

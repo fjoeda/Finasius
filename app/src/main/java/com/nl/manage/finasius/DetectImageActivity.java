@@ -24,6 +24,8 @@ public class DetectImageActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     int harga = 0;
+    int pengeluaran = 0;
+    TextView pengeluaranTxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,16 @@ public class DetectImageActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+
+        // Set pengeluaran sementara
+        pengeluaranTxt = (TextView)findViewById(R.id.pengeluaranText);
+        pengeluaranTxt.setText("Rp "+String.valueOf(pengeluaran));
+        // TODO ; Code Pengeluaran dari Intent
+        Intent intent = getIntent();
+        if(intent.hasExtra("PENGELUARAN_VALUE")){
+            pengeluaran += intent.getIntExtra("PENGELUARAN_VALUE",0);
+            pengeluaranTxt.setText("Rp "+String.valueOf(pengeluaran));
+        }
         Button scanButton = (Button)findViewById(R.id.scanButton);
         Button saveButton = (Button)findViewById(R.id.SaveButton);
         scanButton.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +53,15 @@ public class DetectImageActivity extends AppCompatActivity {
                 if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
                 }
+            }
+        });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DetectImageActivity.this, MainMenuActivity.class);
+                intent.putExtra("PENGELUARAN_NEW_VALUE", pengeluaran+harga);
+                startActivity(intent);
             }
         });
 
@@ -59,7 +80,17 @@ public class DetectImageActivity extends AppCompatActivity {
             String text = new DetectImage().doInBackground(imageBitmap);
             produkText.setText(text);
             harga = getHargaFromTextDummy(text);
+            pengeluaranTxt.setText(String.valueOf(pengeluaran+harga));
             hargaText.setText("Rp "+String.valueOf(harga));
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(harga!=0){
+            Intent intent = new Intent(DetectImageActivity.this, MainMenuActivity.class);
+            intent.putExtra("PENGELUARAN_NEW_VALUE", pengeluaran);
+            startActivity(intent);
         }
     }
 
