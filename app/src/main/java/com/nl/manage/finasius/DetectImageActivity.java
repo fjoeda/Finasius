@@ -29,6 +29,7 @@ public class DetectImageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_detect_image);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -101,6 +102,8 @@ public class DetectImageActivity extends AppCompatActivity {
             return 4500;
         }else if(produk.equals("Air Mineral Aqua")){
             return 3000;
+        }else if(produk.equals("Laundry")){
+            return 19200;
         }else{
             return 0;
         }
@@ -114,7 +117,7 @@ public class DetectImageActivity extends AppCompatActivity {
             final String predictionApiKey = "3dc9393ac7d644f781966cc2c1b5681b";
             Bitmap bmp = bitmaps[0];
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bmp.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            bmp.compress(Bitmap.CompressFormat.JPEG, 75, stream);
             byte[] byteArray = stream.toByteArray();
             //bmp.recycle();
             PredictionEndpoint predictClient = CustomVisionPredictionManager.authenticate("https://southeastasia.api.cognitive.microsoft.com/customvision/v2.0/Prediction/",predictionApiKey);

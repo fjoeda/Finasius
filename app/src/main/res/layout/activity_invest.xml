@@ -10,9 +10,11 @@
 
     <org.eazegraph.lib.charts.ValueLineChart xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/investChart"
-        android:layout_width="357dp"
-        android:layout_height="200dp"
-        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="154dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="121dp"
         app:egCurveSmoothness="0.4"
         app:egIndicatorLineColor="#FE6DA8"
         app:egLegendHeight="40dp"
@@ -21,57 +23,101 @@
         app:egUseOverlapFill="true" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/c"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/investChart"
-        android:layout_marginTop="13dp"
-        android:text="tanggal" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="126dp"
+        android:text="Schroders Dana Prestasi Plus"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_alignTop="@+id/textView13"
+        android:text="+0.07%"
+        android:textColor="#34b30e" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/investChart"
-        android:layout_marginBottom="121dp"
-        android:text="Kinerja 1 Bulan" />
+        android:layout_marginBottom="95dp"
+        android:text="Kinerja 1 Bulan"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/investChart"
-        android:layout_marginTop="101dp"
-        android:text="Manajer Investasi" />
+        android:layout_marginTop="207dp"
+        android:text="Manajer Investasi"
+        android:textColor="#000000"/>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/investChart"
-        android:layout_marginTop="70dp"
-        android:text="Perubahan NAB" />
+        android:layout_marginTop="178dp"
+        android:text="Perubahan NAB"
+        android:textColor="#000000"/>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignTop="@+id/textView5"
+        android:text="BTPN Manajer Investasi, PT"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignTop="@+id/textView4"
+        android:text="+0,02%(Rp022)"
+        android:textColor="#34b30e" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignTop="@+id/textView"
+        android:text="Rp.1.096,15"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/investChart"
-        android:layout_marginTop="40dp"
-        android:text="Nilai aktiva bersih" />
+        android:layout_marginTop="152dp"
+        android:text="Nilai aktiva bersih"
+        android:textColor="#000000" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="358dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/investChart"
-        android:layout_marginBottom="51dp"
-        android:text="Beli" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Beli"
+        android:textColor="#fff" />
 
 </RelativeLayout>

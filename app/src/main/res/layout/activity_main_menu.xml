@@ -4,16 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back_two"
+    android:background="@drawable/back_one"
     tools:context=".MainMenuActivity">
 
     <com.nightonke.boommenu.BoomMenuButton
         android:id="@+id/bmb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="41dp"
+        android:layout_marginEnd="29dp"
         app:bmb_buttonEnum="ham"
-        app:bmb_buttonPlaceEnum="buttonPlace_ham_4"
-        app:bmb_piecePlaceEnum="piecePlace_ham_4" />
+        app:bmb_buttonPlaceEnum="buttonPlace_ham_3  "
+        app:bmb_piecePlaceEnum="piecePlace_ham_3" >
+
+    </com.nightonke.boommenu.BoomMenuButton>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="152dp"
+        android:text="Manfaatkan tabunganmu untuk investasi!" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bmb"
+        android:layout_alignStart="@+id/textView9"
+        android:clickable="true"
+        android:text="Reksa Dana"
+        android:textSize="18sp"
+        tools:textColor="@android:color/holo_blue_light" />
+
+    <org.eazegraph.lib.charts.ValueLineChart
+        android:id="@+id/linechart"
+        android:layout_width="356dp"
+        android:layout_height="174dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        app:egCurveSmoothness="0.4"
+        app:egIndicatorLineColor="#FE6DA8"
+        app:egLegendHeight="40dp"
+        app:egShowStandardValue="true"
+        app:egUseCubic="true"
+        app:egUseOverlapFill="true" />
 
 </RelativeLayout>
