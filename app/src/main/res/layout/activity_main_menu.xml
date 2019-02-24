@@ -16,8 +16,9 @@
         android:layout_marginBottom="41dp"
         android:layout_marginEnd="29dp"
         app:bmb_buttonEnum="ham"
-        app:bmb_buttonPlaceEnum="buttonPlace_ham_3  "
-        app:bmb_piecePlaceEnum="piecePlace_ham_3" >
+        app:bmb_buttonPlaceEnum="buttonPlace_ham_4  "
+        app:bmb_piecePlaceEnum="piecePlace_ham_4"
+        app:bmb_normalColor="#00A4E1">
 
     </com.nightonke.boommenu.BoomMenuButton>
 
@@ -25,21 +26,63 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="152dp"
-        android:text="Manfaatkan tabunganmu untuk investasi!" />
+        android:layout_alignStart="@+id/linechart"
+        android:layout_below="@+id/linechart"
+        android:text="---Pemasukkan"
+        android:textColor="#47a99d"
+        android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/bmb"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/textView9"
+        android:layout_marginStart="133dp"
+        android:text="---Pengeluaran"
+        android:textColor="#ea5c5d60"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/linechart"
+        android:layout_marginBottom="237dp"
+        android:text="Perhatian: Pengeluaran terlalu besar!"
+        android:textColor="#f20000" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="179dp"
+        android:text="Dalam 20 hari, anda sudah mengeluarkan uang di atas rata-rata penghasilan Anda 3 bulan terakhir."
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="145dp"
+        android:layout_marginStart="158dp"
+        android:text="DAN"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/textView9"
-        android:clickable="true"
-        android:text="Reksa Dana"
-        android:textSize="18sp"
-        tools:textColor="@android:color/holo_blue_light" />
+        android:layout_marginBottom="112dp"
+        android:text="Manfaatkan tabunganmu untuk investasi!"
+        android:textColor="#000" />
 
     <org.eazegraph.lib.charts.ValueLineChart
         android:id="@+id/linechart"
@@ -53,6 +96,18 @@
         app:egLegendHeight="40dp"
         app:egShowStandardValue="true"
         app:egUseCubic="true"
-        app:egUseOverlapFill="true" />
+        app:egUseOverlapFill="true"
+        app:egShowLegendBeneathIndicator="true"/>
+
+    <Button
+        android:id="@+id/reksaBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_marginBottom="54dp"
+        android:text="Reksa Dana"
+        android:textColor="#ffffff"
+        android:background="#00A4E1"/>
 
 </RelativeLayout>

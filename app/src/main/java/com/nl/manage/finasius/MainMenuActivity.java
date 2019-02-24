@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
@@ -14,6 +16,7 @@ import com.nightonke.boommenu.BoomButtons.SimpleCircleButton;
 import com.nightonke.boommenu.BoomMenuButton;
 
 import org.eazegraph.lib.charts.ValueLineChart;
+import org.eazegraph.lib.models.LegendModel;
 import org.eazegraph.lib.models.ValueLinePoint;
 import org.eazegraph.lib.models.ValueLineSeries;
 
@@ -43,8 +46,9 @@ public class MainMenuActivity extends AppCompatActivity {
         //Building ham button
         //Scan
         HamButton.Builder builder = new HamButton.Builder()
-                .normalImageRes(R.drawable.piece)
+                .normalImageRes(R.drawable.scan_icon)
                 .normalText("Scan Pembelian")
+                .normalColor(0xff703181)
                 .listener(new OnBMClickListener() {
                     @Override
                     public void onBoomButtonClick(int index) {
@@ -56,8 +60,9 @@ public class MainMenuActivity extends AppCompatActivity {
         bmb.addBuilder(builder);
         //Invest
         builder = new HamButton.Builder()
-                .normalImageRes(R.drawable.piece)
+                .normalImageRes(R.drawable.investupdp)
                 .normalText("Jenius Invest")
+                .normalColor(0xff337026)
                 .listener(new OnBMClickListener() {
                     @Override
                     public void onBoomButtonClick(int index) {
@@ -68,8 +73,9 @@ public class MainMenuActivity extends AppCompatActivity {
         bmb.addBuilder(builder);
         //Bill Reminder
         builder = new HamButton.Builder()
-                .normalImageRes(R.drawable.piece)
+                .normalImageRes(R.drawable.bills)
                 .normalText("Bill Reminder")
+                .normalColor(0xfffdb722)
                 .listener(new OnBMClickListener() {
                     @Override
                     public void onBoomButtonClick(int index) {
@@ -79,10 +85,29 @@ public class MainMenuActivity extends AppCompatActivity {
                 });
         bmb.addBuilder(builder);
         //
-
+        builder = new HamButton.Builder()
+                .normalImageRes(R.drawable.invest_chart)
+                .normalText("Budget")
+                .normalColor(0xff8fbc5a)
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        Intent intent = new Intent(MainMenuActivity.this, Budget.class);
+                        startActivity(intent);
+                    }
+                });
+        bmb.addBuilder(builder);
         // Build Graph
         lineChart = (ValueLineChart)findViewById(R.id.linechart);
         BuildChart();
+        Button reksabtn = (Button)findViewById(R.id.reksaBtn);
+        reksabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainMenuActivity.this, InvestActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void BuildChart(){

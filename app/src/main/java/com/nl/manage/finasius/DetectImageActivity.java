@@ -92,6 +92,7 @@ public class DetectImageActivity extends AppCompatActivity {
             Intent intent = new Intent(DetectImageActivity.this, MainMenuActivity.class);
             intent.putExtra("PENGELUARAN_NEW_VALUE", pengeluaran);
             startActivity(intent);
+            finish();
         }
     }
 

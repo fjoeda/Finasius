@@ -28,8 +28,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="126dp"
+        android:layout_marginTop="93dp"
         android:text="Schroders Dana Prestasi Plus"
+        android:textSize="22dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
 
